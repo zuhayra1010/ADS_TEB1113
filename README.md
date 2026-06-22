@@ -4,7 +4,7 @@ Author - Zuhayra Nasrin
 
 | Date | Lab Tasks |
 | :--- | :--- |
-| 2026/05/29 | Task 01 - [Students](Student.cpp) |
+| 2026/05/29 | Task 01 - [Student](Student.cpp) |
 | 2026/06/05 | Task 01 -  |
 | | Task 02 - |
 | | Task 03 -  |
