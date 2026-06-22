@@ -1,6 +1,7 @@
 # ADS_TEB1113 Course All Lab Tasks - GitHub Repository
 
-Author - Zuhayra Nasrin
+Name : Zuhayra Nasrin Binti Mohd Zairin
+ID : 24006191
 
 | Date | Lab Tasks |
 | :--- | :--- |
