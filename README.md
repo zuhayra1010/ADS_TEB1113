@@ -6,7 +6,7 @@ Name: Zuhayra Nasrin Binti Mohd Zairin
 | Date | Lab Tasks |
 | :--- | :--- |
 | 2026/05/29 | Task 01 - [Student](Student.cpp) |
-| 2026/06/05 | Task 01 -  |
+| 2026/06/05 | Task 01 - [Easy-Rotated Matrix](EasyRotatedMatrix.cpp)|
 | | Task 02 - |
 | | Task 03 -  |
 | 2026/06/12 | Task 01 -  |
