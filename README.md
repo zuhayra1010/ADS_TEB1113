@@ -1,4 +1,4 @@
-# ADS_TEB1113 Course All Lab Tasks - GitHub Repository
+# ADS_TEB1113 All Lab Tasks 
 
 Name: Zuhayra Nasrin Binti Mohd Zairin  
   ID: 24006191
