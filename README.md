@@ -10,7 +10,7 @@ Name: Zuhayra Nasrin Binti Mohd Zairin
 | | | | Task 2 - [Medium-Finding median in matrix using binary search](MedianMatrixBinarySearch.cpp) |
 | | | | Task 3 - [Advanced-Maximum area rectangle of 1s in a binary matrix](MaxAreaBinaryMatrix.cpp)|
 | Lab 3 | 5 | 2026/06/12 | Task 1 - [Singly Linked List] |
-| Lab 4 | 6 | 2026/06/19 | Task 1 - [Double Linked List] |
+| Lab 4 | 6 | 2026/06/19 | Task 1 - [Double Linked List](DoubleLinkedList.cpp) |
 | | | | Task 2 - [Cicrular Linked List (Extra) - Change of Structure, Function remains] |
 | Lab 5 | 7 | 2026/06/26 | |
 | Lab 6 | 8 | 2026/07/03 | |
