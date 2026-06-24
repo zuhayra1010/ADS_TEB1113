@@ -1,204 +1,143 @@
 #include <iostream>
 #include <string>
-#include <limits>
 using namespace std;
 
-// Structure to store student information
-struct Student {
-    int id;
+struct Student
+{
+    string id;
     string name;
     string course;
     int age;
 };
 
-int main() {
+int main()
+{
+    Student student[5];
 
-    // Array of 5 Student records
-    Student students[5];
+    // Input 5 students
+    cout << "Enter information for 5 students" << endl;
 
-    cout << "Input\n\n";
+    for (int i = 0; i < 5; i++)
+    {
+        cout << endl;
+        cout << "Student " << i + 1 << endl;
 
-    // Input details for 5 students
-    for (int i = 0; i < 5; i++) {
-
-        cout << "Student " << i + 1 << "\n";
-
-        // Input student ID (must be numeric)
         cout << "ID: ";
-        while (!(cin >> students[i].id)) {
-            cout << "Invalid ID. Enter numbers only: ";
-            cin.clear(); // clear error flag
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
+        cin >> student[i].id;
 
-        // Input student name
+        cin.ignore();
+
         cout << "Name: ";
-        getline(cin, students[i].name);
+        getline(cin, student[i].name);
 
-        // Input course name
         cout << "Course: ";
-        getline(cin, students[i].course);
+        getline(cin, student[i].course);
 
-        // Input age (must be numeric)
         cout << "Age: ";
-        while (!(cin >> students[i].age)) {
-            cout << "Invalid Age. Enter numbers only: ";
-            cin.clear();
-            cin.ignore(numeric_limits<streamsize>::max(), '\n');
-        }
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-        cout << "\n";
+        cin >> student[i].age;
     }
 
-    // Display all student records
-    cout << "All Students\n\n";
+    // Display all students
+    cout << endl;
+    cout << "===== STUDENT LIST =====" << endl;
 
-    for (int i = 0; i < 5; i++) {
-        cout << "ID: " << students[i].id << "\n";
-        cout << "Name: " << students[i].name << "\n";
-        cout << "Course: " << students[i].course << "\n";
-        cout << "Age: " << students[i].age << "\n\n";
+    for (int i = 0; i < 5; i++)
+    {
+        cout << endl;
+        cout << "ID: " << student[i].id << endl;
+        cout << "Name: " << student[i].name << endl;
+        cout << "Course: " << student[i].course << endl;
+        cout << "Age: " << student[i].age << endl;
     }
 
     // Search student by ID
-    int searchID;
+    string searchID;
+    bool found = false;
 
+    cout << endl;
     cout << "Enter ID to search: ";
-    while (!(cin >> searchID)) {
-        cout << "Invalid ID. Enter numbers only: ";
-        cin.clear();
-        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-    }
+    cin >> searchID;
 
-    bool searchFound = false;
-
-    // Linear search through the array
-    for (int i = 0; i < 5; i++) {
-        if (students[i].id == searchID) {
-            cout << "Found. Name: " << students[i].name << "\n";
-            searchFound = true;
+    for (int i = 0; i < 5; i++)
+    {
+        if (student[i].id == searchID)
+        {
+            cout << "Student Name: " << student[i].name << endl;
+            found = true;
             break;
         }
     }
 
-    if (!searchFound) {
-        cout << "Student not found.\n";
+    if (!found)
+    {
+        cout << "Student not found" << endl;
     }
 
-    // Update student records repeatedly until user quits
-    string inputID;
+    // Update section
+    string updateID;
 
-    while (true) {
+    cout << endl;
+    cout << "Enter ID to update (or Q to quit): ";
+    cin >> updateID;
 
-        cout << "\nEnter ID to update (or Q to quit): ";
-        cin >> inputID;
+    if (updateID == "Q" || updateID == "q")
+    {
+        cout << "Program ended." << endl;
+        return 0;
+    }
 
-        // Exit update mode
-        if (inputID == "Q" || inputID == "q") {
-            cout << "Exiting update mode.\n";
-            break;
-        }
+    found = false;
 
-        int updateID;
+    for (int i = 0; i < 5; i++)
+    {
+        if (student[i].id == updateID)
+        {
+            found = true;
 
-        // Convert string to integer safely
-        try {
-            updateID = stoi(inputID);
-        }
-        catch (...) {
-            cout << "Invalid ID.\n";
-            continue;
-        }
+            string choice;
 
-        string change;
+            cout << "What do you want to change (id/name/course/age): ";
+            cin >> choice;
 
-        // Ask user which field to update
-        cout << "What do you want to change (id/name/course/age): ";
-        cin >> change;
-
-        bool updateFound = false;
-
-        // Search for matching ID
-        for (int i = 0; i < 5; i++) {
-
-            if (students[i].id == updateID) {
-
-                updateFound = true;
-
-                // Update ID
-                if (change == "id") {
-
-                    int newID;
-
-                    cout << "Enter new ID: ";
-                    while (!(cin >> newID)) {
-                        cout << "Invalid ID. Enter numbers only: ";
-                        cin.clear();
-                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    }
-
-                    students[i].id = newID;
-                    cout << "Updated.\n";
-                }
-
-                // Update name
-                else if (change == "name") {
-
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-                    cout << "Enter new name: ";
-                    getline(cin, students[i].name);
-
-                    cout << "Updated.\n";
-                }
-
-                // Update course
-                else if (change == "course") {
-
-                    cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
-                    cout << "Enter new course: ";
-                    getline(cin, students[i].course);
-
-                    cout << "Updated.\n";
-                }
-
-                // Update age
-                else if (change == "age") {
-
-                    int newAge;
-
-                    cout << "Enter new age: ";
-                    while (!(cin >> newAge)) {
-                        cout << "Invalid Age. Enter numbers only: ";
-                        cin.clear();
-                        cin.ignore(numeric_limits<streamsize>::max(), '\n');
-                    }
-
-                    students[i].age = newAge;
-                    cout << "Updated.\n";
-                }
-
-                // Invalid field entered
-                else {
-                    cout << "Invalid field. Use: id, name, course, or age.\n";
-                }
-
-                // Display updated record
-                cout << "ID: " << students[i].id << "\n";
-                cout << "Name: " << students[i].name << "\n";
-                cout << "Course: " << students[i].course << "\n";
-                cout << "Age: " << students[i].age << "\n";
-
-                break;
+            if (choice == "id")
+            {
+                cout << "Enter new ID: ";
+                cin >> student[i].id;
             }
-        }
+            else if (choice == "name")
+            {
+                cin.ignore();
 
-        if (!updateFound) {
-            cout << "Student not found.\n";
+                cout << "Enter new Name: ";
+                getline(cin, student[i].name);
+            }
+            else if (choice == "course")
+            {
+                cin.ignore();
+
+                cout << "Enter new Course: ";
+                getline(cin, student[i].course);
+            }
+            else if (choice == "age")
+            {
+                cout << "Enter new Age: ";
+                cin >> student[i].age;
+            }
+
+            cout << endl;
+            cout << "Updated Student Information" << endl;
+            cout << "ID: " << student[i].id << endl;
+            cout << "Name: " << student[i].name << endl;
+            cout << "Course: " << student[i].course << endl;
+            cout << "Age: " << student[i].age << endl;
+
+            break;
         }
+    }
+
+    if (!found)
+    {
+        cout << "Student not found" << endl;
     }
 
     return 0;
