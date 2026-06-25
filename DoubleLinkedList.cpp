@@ -83,36 +83,27 @@ public:
             return;
         }
 
-        if (head->name == name)
-        {
-            Node* temp = head;
-            head = head->next;
-
-            if (head != nullptr)
-            {
-                head->prev = nullptr;
-            }
-
-            delete temp;
-            return;
-        }
-
         Node* current = head;
 
-        while (current->next != nullptr)
+        while (current != nullptr)
         {
-            if (current->next->name == name)
+            if (current->name == name)
             {
-                Node* temp = current->next;
-
-                current->next = temp->next;
-
-                if (temp->next != nullptr)
+                if (current->prev != nullptr)
                 {
-                    temp->next->prev = current;
+                    current->prev->next = current->next;
+                }
+                else
+                {
+                    head = current->next;
                 }
 
-                delete temp;
+                if (current->next != nullptr)
+                {
+                    current->next->prev = current->prev;
+                }
+
+                delete current;
                 return;
             }
 
@@ -180,7 +171,7 @@ int main()
     list.display();
 
     cout << endl;
-    cout << "Reverse linked list:" << endl;
+    cout << "Reverse linkedlist:" << endl;
     list.displayReverse();
 
     cout << endl;
